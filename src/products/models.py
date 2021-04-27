@@ -10,4 +10,8 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"{self.name}-{self.created.strtime('%d/%m/%Y')}"
+        return f"{self.name}-{self.created.strftime('%d/%m/%Y')}"
+    
+    # the self.created... ads the date to the product name
+    # the strftime(...) sets the date in the right format
+
