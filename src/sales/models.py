@@ -16,7 +16,7 @@ class Position(models.Model): # a product times quantity -> outputs a price
         return super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"id: {self.position.id}, product: {self.product.name}, quantity: {self.quantity}"
+        return f"id: {self.id}, product: {self.product.name}, quantity: {self.quantity}"
 
 
 class Sale(models.Model): 
