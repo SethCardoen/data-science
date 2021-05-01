@@ -9,10 +9,10 @@ class Position(models.Model): # a product times quantity -> outputs a price
     product = models.ForeignKey(Product, on_delete=models.CASCADE) #if the product gets deleted, all the positions will be deleted
     quantity = models.PositiveIntegerField()
     price = models.FloatField(blank=True)
-    created = models.DateTimeField(blank =True)
+    created = models.DateTimeField(blank=True)
 
     def save(self, *args, **kwargs):
-        self.price = self.price * self.quantity
+        self.price = self.product.price * self.quantity
         return super().save(*args, **kwargs)
 
     def __str__(self):
